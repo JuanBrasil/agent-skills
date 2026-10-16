@@ -1,0 +1,12 @@
+interface:
+  display_name: Respostas de email comercial
+  short_description: Prepare respostas comerciais usando histórico e perfil opcional
+  default_prompt: Use $commercial-email-replies para preparar uma resposta ao email, respeitando
+    o histórico e a personalização disponível.
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
