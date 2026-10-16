@@ -5,3 +5,7 @@ personalization/
 __pycache__/
 *.py[cod]
 .venv/
+private/
+backups/
+*.local.md
+*.private.md

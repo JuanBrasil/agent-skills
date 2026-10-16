@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Requests"
+  short_description: "Crie e detalhe pedidos de produto para implementação"
+  default_prompt: "Use $product-requests para transformar este relato e suas referências em um pedido implementável; publique somente conforme eu solicitar."

@@ -9,6 +9,16 @@ Each skill lives in its own directory, with a `SKILL.md` entry point and any sup
 | Skill | Purpose | Documentation |
 | --- | --- | --- |
 | [commercial-email-replies](skills/commercial-email-replies) | Draft and review commercial email replies, quotes, negotiations, refusals, and follow-ups using the conversation history. | [Usage and checks](skills/commercial-email-replies/README.md) |
+| [product-requests](skills/product-requests) | Turn product observations, screenshots, bugs and ideas into implementation-ready cards, issues and correction comments. | [Usage and checks](skills/product-requests/README.md) |
+| [delivery-validation](skills/delivery-validation) | Check a delivered request in the product, present evidence and handle approval or return for correction. | [Usage and checks](skills/delivery-validation/README.md) |
+
+## Product Requests + Delivery Validation
+
+These skills have distinct entry points and work together. **Product Requests** can document a new request directly from an observation or idea. **Delivery Validation** checks an existing delivery against the current request and calls Product Requests when a correction comment is needed.
+
+Install both as sibling directories to enable their relative links. The handoff carries the item, current scope, evidence, user verdict, authorized actions and excluded changes. It does not restart the review or request approval again for the same authorized action. A separate new idea becomes a new item only when requested.
+
+Example: validate a delivery → the user accepts most of it and identifies one missing interaction → Product Requests writes that specific correction → comment on the original item → move it to the configured correction state. The workflow supports Trello or GitHub; account access and project/status mappings come from your environment and private configuration.
 
 ## Getting started
 
@@ -26,7 +36,7 @@ Tool access and import mechanisms depend on the assistant environment. Skills pr
 
 Public skills contain reusable workflows and generic examples. Keep personal profiles, contacts, client conversations, rates, and confidential business rules outside the public files.
 
-The email skill supports an optional local `personalization/` directory and includes a generic setup template. Git ignores personalization directories and common local environment files. Ignore rules do not remove files already committed: review staged changes and history before publishing.
+The email skill supports an optional local `personalization/` directory and includes a generic setup template. The product skills read an optional profile at `personalization/product-workflows/profile.md` under `CODEX_HOME` (or `~/.codex/`). Keep that profile outside this repository; it can contain board/project destinations and individual preferences, but never credentials. Git ignores personalization directories and common local environment files. Ignore rules do not remove files already committed: review staged changes and history before publishing.
 
 ## Adding a skill
 
@@ -40,6 +50,14 @@ For the current email skill:
 ```bash
 python -m unittest discover -s skills/commercial-email-replies/tests -v
 ```
+
+For the product skills:
+
+```bash
+python scripts/check_product_skills.py
+```
+
+The product check is offline: it validates package structure, relative references, UI metadata and privacy patterns. It does not prove live product behavior or guarantee absence of sensitive information; inspect publication diffs as well.
 
 ## License
 

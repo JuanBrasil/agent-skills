@@ -1,0 +1,4 @@
+interface:
+  display_name: "Delivery Validation"
+  short_description: "Confira entregas e conduza aprovação ou correção"
+  default_prompt: "Use $delivery-validation para conferir primeiro a próxima entrega no produto, apresentar evidências e aguardar meu veredito; use Product Requests ao redigir pendências."
