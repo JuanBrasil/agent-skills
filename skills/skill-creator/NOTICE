@@ -1,0 +1,6 @@
+Skill Creator portable distribution
+
+Based on the OpenAI-bundled Codex Skill Creator supplied with the local environment.
+The upstream Apache License 2.0 is preserved in license.txt and applies to this directory.
+Local distribution changes: explicit UTF-8 reads/writes in helper scripts; reject empty name/description in the validator; preflight invalid initializer UI arguments before creating a partial directory; refreshed UI metadata; added packaging documentation and regression tests. Decorative bundled icon assets are omitted.
+The managed system installation is not replaced by this repository copy.

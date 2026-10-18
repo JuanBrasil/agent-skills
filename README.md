@@ -11,6 +11,10 @@ Each skill lives in its own directory, with a `SKILL.md` entry point and any sup
 | [commercial-email-replies](skills/commercial-email-replies) | Draft and review commercial email replies, quotes, negotiations, refusals, and follow-ups using the conversation history. | [Usage and checks](skills/commercial-email-replies/README.md) |
 | [product-requests](skills/product-requests) | Turn product observations, screenshots, bugs and ideas into implementation-ready cards, issues and correction comments. | [Usage and checks](skills/product-requests/README.md) |
 | [delivery-validation](skills/delivery-validation) | Check a delivered request in the product, present evidence and handle approval or return for correction. | [Usage and checks](skills/delivery-validation/README.md) |
+| [skill-refinement](skills/skill-refinement) | Refine existing skills, preserve learned behavior, separate private configuration and validate authorized releases. | [Usage and checks](skills/skill-refinement/README.md) |
+| [skill-creator](skills/skill-creator) | Create or update skills with scoped instructions, appropriate resources and helper validation. Reviewed portable derivative. | [Usage, provenance and checks](skills/skill-creator/README.md) |
+
+Skill Creator builds or updates a skill; Skill Refinement focuses on reviewing an existing one without losing its learned behavior. Refinement can use a Creator validator, but does not require a second skill to begin an audit. Neither publishes automatically.
 
 ## Product Requests + Delivery Validation
 
@@ -59,6 +63,15 @@ python scripts/check_product_skills.py
 
 The product check is offline: it validates package structure, relative references, UI metadata and privacy patterns. It does not prove live product behavior or guarantee absence of sensitive information; inspect publication diffs as well.
 
+For the skill-authoring tools, install their `requirements.txt` in an isolated Python environment and run:
+
+```bash
+python -m unittest discover -s skills/skill-refinement/tests -v
+python -m unittest discover -s skills/skill-creator/tests -v
+```
+
+Skill Refinement can inspect a local package without editing or using the network: `python skills/skill-refinement/scripts/inspect_skill.py PATH`. Keep personal denylist files and audit reports outside the repository. Pattern matches are review findings, not an automatic privacy certification.
+
 ## License
 
-[MIT License](LICENSE), copyright 2026 Juan Brasil.
+[MIT License](LICENSE), copyright 2026 Juan Brasil, except where a directory specifies its own license. The portable [Skill Creator](skills/skill-creator) retains its upstream [Apache License 2.0](skills/skill-creator/license.txt) and [provenance notice](skills/skill-creator/NOTICE).

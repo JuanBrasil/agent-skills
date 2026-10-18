@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Refinement"
+  short_description: "Lapide skills preservando regras e privacidade"
+  default_prompt: "Use $skill-refinement para revisar esta skill, separar dados privados e validar o comportamento sem publicar até eu solicitar."
